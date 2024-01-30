@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Profile</title>
+</head>
+<body>
+    <h1>Profile Details</h1>
+    <h2>User Reviews</h2>
+    <ul>
+        {% for review in user_reviews %}
+            <li>{{ review.text }} - {{ review.rating }}</li>
+        {% empty %}
+            <li>No reviews yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

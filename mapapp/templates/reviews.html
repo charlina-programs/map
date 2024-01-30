@@ -1,0 +1,24 @@
+<!-- reviews.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ business.name }} Reviews{% endblock %}
+
+{% block content %}
+    <h2>{{ business.name }}</h2>
+    <p>{{ business.description }}</p>
+
+    <!-- Display the map here -->
+    <div id="map" style="height: 400px;"></div>
+
+    <!-- Display the reviews -->
+    <h2>Reviews</h2>
+    {% for review in reviews %}
+        <p>{{ review.text }} - Rating: {{ review.rating }}</p>
+    {% endfor %}
+
+    <!-- Include the JavaScript file -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- Include this script in your template to load the Google Maps API -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN9yc_bpS9cx_4-OJy-47BNFkCd_6BbNA&callback=initMap"></script>
+    <!-- Replace 'YOUR_API_KEY' with your actual API key -->
+{% endblock %}
